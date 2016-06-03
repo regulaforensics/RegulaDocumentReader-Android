@@ -8,8 +8,7 @@ If you have any questinons, feel free to contact us support@regulaforensics.com
 * [How to use DocumentReader library](#how_to_use_documentreader_library)
 * [Additional information](#additional_information)
 
-# <a name="how_to_build_demo_application"></a>
-## How to build demo application
+## <a name="how_to_build_demo_application"></a> How to build demo application
 
 1. Contact support@regulaforensics.com to get trial license for demo application
 1. Download and install latest [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -18,8 +17,7 @@ If you have any questinons, feel free to contact us support@regulaforensics.com
 1. Download additional files proposed by Android Studio to build project (build tools, for example)
 1. Build and run application on device
 
-# <a name="how_to_use_documentreader_library"></a>
-## How to use DocumentReader library
+## <a name="how_to_use_documentreader_library"></a> How to use DocumentReader library
 
 The very first step you should make is set up license file:
 ```java
@@ -87,6 +85,5 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 Additional details of how to use `CaptureActivity` you can find in demo application code.
 
-# <a name="additional_information"></a>
-## Additional information
+## <a name="additional_information"></a> Additional information
 If you have any questinons, feel free to contact us support@regulaforensics.com
