@@ -36,7 +36,7 @@ try {
 
 License file contains information about your application id and time terms. If `setLibLicense()` method returns false, you can see additional information in logcat.
 
-When license file installed, all you need to do is to call only one function to process bitmap or video frame:
+When the license file is installed, all you need to do is to call only one function to process bitmap or video frame:
 ```java
 // Bitmap processing
 Bitmap bmp = getBitmap(selectedImage);
