@@ -1,11 +1,14 @@
 # Regula Document Reader
 
+![Screen](MrzDetectorDemo.PNG)
+
 ## How to build demo application
 
+1. Contact support@regulaforensics.com to get trial license for demo application
 1. Download and install latest [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 1. Download and install latest [Android Studio](https://developer.android.com/studio/index.html)
-1. Launch Android Studio and select "Open an existing Android Studio project" then select "RegulaDocumentReader" project in file browser
-1. Download additional files proposed by Android Studio to build project, build tools, for example
+1. Launch Android Studio and select "Open an existing Android Studio project" then select "RegulaDocumentReader-Android/RegulaDocumentReader" project in file browser
+1. Download additional files proposed by Android Studio to build project (build tools, for example)
 1. Build and run application on device
 
 ## How to use DocumentReader library
