@@ -3,6 +3,7 @@
 regula_license
 
 # Built application files
+*.aar
 *.apk
 *.ap_
 

@@ -13,7 +13,7 @@ If you have any questinons, feel free to contact us at support@regulaforensics.c
 1. Clone current repository using command `git clone https://github.com/regulaforensics/RegulaDocumentReader-Android.git`.
 1. Download and install latest [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 1. Download and install latest [Android Studio](https://developer.android.com/studio/index.html).
-1. Download latest [DocumentReader.aar](https://github.com/regulaforensics/RegulaDocumentReader-Android/releases) and copy it to `RegulaDocumentReader/DocumentReader` folder.
+1. Download latest [DocumentReader.aar](https://github.com/regulaforensics/RegulaDocumentReader-Android/releases/latest) and copy it to `RegulaDocumentReader/DocumentReader` folder.
 1. Copy file `regula.license` to `RegulaDocumentReader/MrzDetectorDemo/src/main/res/raw` folder. 
 1. Launch Android Studio and select _Open an existing Android Studio project_ then select _RegulaDocumentReader_ project in file browser.
 1. Download additional files proposed by Android Studio to build project (build tools, for example).
@@ -76,7 +76,7 @@ public void onPreviewFrame(byte[] data, final Camera camera) {
 }
 ```
 
-Or you can call `CaptureActivity` that implemets all camera work for you:
+You can also use `CaptureActivity` that does all camera work for you:
 ```java
 Intent intent = new Intent(MainActivity.this, CaptureActivity.class);
 MainActivity.this.startActivityForResult(intent, DocumentReader.READER_REQUEST_CODE);
