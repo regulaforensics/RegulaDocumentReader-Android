@@ -23,7 +23,6 @@ import java.io.InputStream;
 
 public class MainActivity extends Activity {
     private ImageButton mCameraBtn, mFolderBtn, mAboutBtn;
-    private DocumentReader mDocumentReader;
     private static boolean sIsLicenseOk;
 
     @Override
@@ -34,8 +33,6 @@ public class MainActivity extends Activity {
         mCameraBtn = (ImageButton) findViewById(R.id.cameraBtn);
         mFolderBtn = (ImageButton) findViewById(R.id.folderBtn);
         mAboutBtn = (ImageButton) findViewById(R.id.aboutBtn);
-
-        mDocumentReader = DocumentReader.getInstance();
     }
 
     @Override
@@ -47,7 +44,7 @@ public class MainActivity extends Activity {
                 InputStream licInput = getResources().openRawResource(R.raw.regula);
                 byte[] license = new byte[licInput.available()];
                 licInput.read(license);
-                sIsLicenseOk = mDocumentReader.setLibLicense(license);
+                sIsLicenseOk = DocumentReader.setLibLicense(getApplicationContext(), license);
                 licInput.close();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -67,7 +64,7 @@ public class MainActivity extends Activity {
             mAboutBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    DocumentReader.getInstance().about();
+                    DocumentReader.about();
                 }
             });
 
@@ -105,7 +102,7 @@ public class MainActivity extends Activity {
                 if (data.getData() != null) {
                     Uri selectedImage = data.getData();
                     Bitmap bmp = getBitmap(selectedImage);
-                    int status = mDocumentReader.processBitmap(bmp);
+                    int status = DocumentReader.processBitmap(bmp);
                     if(status == MRZDetectorErrorCode.MRZ_RECOGNIZED_CONFIDENTLY) {
                         Intent i = new Intent(MainActivity.this, ResultsActivity.class);
                         MainActivity.this.startActivity(i);

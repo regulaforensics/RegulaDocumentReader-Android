@@ -39,10 +39,10 @@ public class ResultsActivity extends Activity {
 	protected void onResume() {
 		super.onResume();
 
-        mResultItems.addAll(DocumentReader.getInstance().getAllTextFields());
+        mResultItems.addAll(DocumentReader.getAllTextFields());
         mAdapter.notifyDataSetChanged();
 
-        GraphicField graphicField = DocumentReader.getInstance().getGraphicFieldByType(eGraphicFieldType.gt_Other);
+        GraphicField graphicField = DocumentReader.getGraphicFieldByType(eGraphicFieldType.gt_Other);
         if(graphicField!=null && graphicField.fileImage!=null) {
             mrzImgView.setImageBitmap(graphicField.fileImage);
         } else {
