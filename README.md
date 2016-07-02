@@ -22,13 +22,12 @@ If you have any questions, feel free to contact us at support@regulaforensics.co
 ## <a name="how_to_use_documentreader_library"></a> How to use DocumentReader library
 The very first step you should make is install license file:
 ```java
-documentReader = DocumentReader.getInstance();
 boolean licenseOk = false;
 try {
     InputStream licInput = getResources().openRawResource(R.raw.regula);
     byte[] license = new byte[licInput.available()]; // license - it is an array of bytes
     licInput.read(license);
-    licenseOk = documentReader.setLibLicense(license);
+    licenseOk = DocumentReader.setLibLicense(license);
     licInput.close();
 } catch (IOException e) {
     e.printStackTrace();
@@ -47,10 +46,10 @@ When the license file is installed, all you need to do is to call only one funct
 ```java
 // Bitmap processing
 Bitmap bmp = getBitmap(selectedImage);
-int status = documentReader.processBitmap(bmp);
+int status = DocumentReader.processBitmap(bmp);
 if(status == MRZDetectorErrorCode.MRZ_RECOGNIZED_CONFIDENTLY) {
   // MRZ recognized, fetch results
-  TextField surnameTextField = documentReader.getTextFieldByType(eVisualFieldType.ft_Surname);
+  TextField surnameTextField = DocumentReader.getTextFieldByType(eVisualFieldType.ft_Surname);
   String surname = surnameTextField.bufText;
   ...
 } else {
@@ -62,11 +61,11 @@ private CameraPreview camPreview;
 ...
 @override
 public void onPreviewFrame(byte[] data, final Camera camera) {
-    int status = documentReader.processVideoFrame(
+    int status = DocumentReader.processVideoFrame(
       data, camPreview.camW, camPreview.camH, camPreview.params.getPreviewFormat());
     if (status == MRZDetectorErrorCode.MRZ_RECOGNIZED_CONFIDENTLY) {
       // MRZ recognized, fetch results
-      TextField surnameTextField = documentReader.getTextFieldByType(eVisualFieldType.ft_Surname);
+      TextField surnameTextField = DocumentReader.getTextFieldByType(eVisualFieldType.ft_Surname);
       String surname = surnameTextField.bufText;   
       ...
     }
@@ -86,7 +85,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
     if (resultCode == RESULT_OK && requestCode == DocumentReader.READER_REQUEST_CODE){
         // MRZ recognized, fetch results
-        TextField surnameTextField = documentReader.getTextFieldByType(eVisualFieldType.ft_Surname);
+        TextField surnameTextField = DocumentReader.getTextFieldByType(eVisualFieldType.ft_Surname);
         String surname = surnameTextField.bufText;
         ...
     }
