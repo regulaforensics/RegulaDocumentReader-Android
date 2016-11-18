@@ -28,6 +28,15 @@
             android:src="@drawable/info"/>
 
         <ImageButton
+            android:id="@+id/settingBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
+            android:src="@drawable/support"
+            android:visibility="visible"/>
+
+        <ImageButton
             android:id="@+id/folderBtn"
             android:layout_width="0dp"
             android:layout_height="match_parent"

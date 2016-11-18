@@ -1,6 +1,7 @@
 #Regula
 *.license
 regula_license
+*.properties
 
 # Built application files
 *.aar

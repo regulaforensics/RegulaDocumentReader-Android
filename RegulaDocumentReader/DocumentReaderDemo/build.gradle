@@ -1,13 +1,18 @@
+import com.android.build.OutputFile;
+
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdkVersion 25
+    buildToolsVersion '25'
 
     defaultConfig {
         applicationId "com.regula.documentreader"
         minSdkVersion 14
-        targetSdkVersion 18
+        targetSdkVersion 25
+
+        versionCode 8
+        versionName "1.8"
     }
     buildTypes {
         release {
@@ -15,8 +20,47 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+//    splits{
+//        // Configures screen ABI split settings
+//        abi {
+//            // Enable ABI APK splits
+//            enable true
+//
+//            // By default all ABIs are included, so use reset()
+//            // Resets the list of ABIs that Gradle should create APKs for to none
+//            reset()
+//
+//            // Specifies a list of ABIs that Gradle should create APKs for
+//            include "x86", "armeabi-v7a", "x86_64", "arm64-v8a"
+//
+//            // Specify that we want to also generate a universal APK that includes all ABIs
+//            universalApk true
+//        }
+//    }
+}
+
+//// map for the version code that gives each ABI a value
+//ext.versionCodes = ['armeabi-v7a':1, 'arm64-v8a':2, x86:3, 'x86_64':4]
+//
+//// For each APK output variant, override versionCode with a combination of
+//// ABI APK value * 100 + defaultConfig.versionCode
+//android.applicationVariants.all { variant ->
+//    // assign different version code for each output
+//    variant.outputs.each { output ->
+//        output.versionCodeOverride =
+//                project.versionCodes.get(output.getFilter(OutputFile.ABI),0) * 100
+//        + android.defaultConfig.versionCode
+//    }
+//}
+
+repositories{
+    mavenCentral()
+    maven { url 'http://guardian.github.com/maven/repo-releases' }
 }
 
 dependencies {
     compile project(':DocumentReader')
+    compile 'net.rdrei.android.dirchooser:library:3.2'
+    compile 'com.android.support:appcompat-v7:25.0.0'
 }

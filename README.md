@@ -20,40 +20,46 @@ If you have any questions, feel free to contact us at support@regulaforensics.co
 1. Build and run application on device.
 
 ## <a name="how_to_use_documentreader_library"></a> How to use DocumentReader library
-The very first step you should make is install license file:
+The very first step you should make is initialize DocumentReader (install license file):
 ```java
-boolean licenseOk = false;
 try {
     InputStream licInput = getResources().openRawResource(R.raw.regula);
-    byte[] license = new byte[licInput.available()]; // license - it is an array of bytes
-    licInput.read(license);
-    licenseOk = DocumentReader.setLibLicense(license);
+    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+    int i;
+    try {
+        i = licInput.read();
+        while (i != -1)
+        {
+            byteArrayOutputStream.write(i);
+            i = licInput.read();
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    byte[] license = byteArrayOutputStream.toByteArray();
+    sIsInitialized = DocumentReader.Instance().Init(MainActivity.this, license);
     licInput.close();
+    byteArrayOutputStream.close();
 } catch (IOException e) {
     e.printStackTrace();
 }
-if (licenseOk) {
-    // license is OK, now we can use DocumentReader library
-}
-else {
-    // license isn't OK, you can see additional information in logcat
-}
 ```
 
-License file contains information about your application id and time terms. If `setLibLicense()` method returns false, you can see additional information in logcat.
+License file contains information about your application id and time terms. If `Init()` method returns false, you can see additional information in logcat.
 
-When the license file is installed, all you need to do is to call only one function to process bitmap or video frame:
+When DocumentReader is initialized, all you need to do is to call only one function to process bitmap or video frame:
 ```java
 // Bitmap processing
 Bitmap bmp = getBitmap(selectedImage);
-int status = DocumentReader.processBitmap(bmp);
+int status = DocumentReader.Instance().processBitmap(bmp);
 if(status == MRZDetectorErrorCode.MRZ_RECOGNIZED_CONFIDENTLY) {
-  // MRZ recognized, fetch results
-  TextField surnameTextField = DocumentReader.getTextFieldByType(eVisualFieldType.ft_Surname);
-  String surname = surnameTextField.bufText;
-  ...
-} else {
-  // MRZ not recognized
+    // MRZ recognized, fetch results
+    TextField surnameTextField = DocumentReader.Instance().getTextFieldByType(eVisualFieldType.ft_Surname);
+    String surname = surnameTextField.bufText;
+    ...
+} else{
+    // MRZ not recognized
+    ...
 }
 
 // Video frame processing (Camera.PreviewCallback interface, android.hardware.camera2 API)
@@ -61,16 +67,17 @@ private CameraPreview camPreview;
 ...
 @override
 public void onPreviewFrame(byte[] data, final Camera camera) {
-    int status = DocumentReader.processVideoFrame(
-      data, camPreview.camW, camPreview.camH, camPreview.params.getPreviewFormat());
+    ...
+    int status = DocumentReader.Instance().processVideoFrame(data, size.width, size.height, parameters.getPreviewFormat());
     if (status == MRZDetectorErrorCode.MRZ_RECOGNIZED_CONFIDENTLY) {
-      // MRZ recognized, fetch results
-      TextField surnameTextField = DocumentReader.getTextFieldByType(eVisualFieldType.ft_Surname);
-      String surname = surnameTextField.bufText;   
-      ...
+        // MRZ recognized, fetch results
+        TextField surnameTextField = DocumentReader.Instance().getTextFieldByType(eVisualFieldType.ft_Surname);
+        String surname = surnameTextField.bufText; 
+          ...
     }
     else {
-      // MRZ not recognized
+        // MRZ not recognized
+        ...
     }
 }
 ```
@@ -85,7 +92,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
     if (resultCode == RESULT_OK && requestCode == DocumentReader.READER_REQUEST_CODE){
         // MRZ recognized, fetch results
-        TextField surnameTextField = DocumentReader.getTextFieldByType(eVisualFieldType.ft_Surname);
+        TextField surnameTextField = DocumentReader.Instance().getTextFieldByType(eVisualFieldType.ft_Surname);
         String surname = surnameTextField.bufText;
         ...
     }

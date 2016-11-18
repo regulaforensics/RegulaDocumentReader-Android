@@ -1,7 +1,5 @@
 package com.regula.documentreader;
 
-import java.util.List;
-
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -14,6 +12,8 @@ import android.widget.TextView;
 
 import com.regula.sdk.results.TextField;
 import com.regula.sdk.translation.TranslationUtil;
+
+import java.util.List;
 
 public class SimpleMrzDataAdapter extends ArrayAdapter<TextField> {
 
