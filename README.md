@@ -115,6 +115,6 @@ dependencies {
 You also have to register license file as described in [How to use DocumentReader library](#how_to_use_documentreader_library)
 
 ## <a name="additional_information"></a> Additional information
-[Javadoc API reference](https://regulaforensics.github.io/RegulaDocumentReader-Android/index.html). 
+[Javadoc API reference (for old version)](https://regulaforensics.github.io/RegulaDocumentReader-Android/index.html). 
 
 If you have any questions, feel free to contact us at support@regulaforensics.com
