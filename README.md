@@ -114,6 +114,14 @@ dependencies {
 ```
 You also have to register license file as described in [How to use DocumentReader library](#how_to_use_documentreader_library)
 
+## <a name="license_troubleshooting"></a> Troubleshooting license issues
+If you have issues with license verification when running the application, please verify that next is true:
+1. OS you are using is the same as in the license you generated (Android).
+1. Application ID is the same that you specified for license.
+1. Date and time on the device you are trying to run the application is correct and inside the license validity term.
+1. You are using the latest release of the SDK from [Releases](https://github.com/regulaforensics/RegulaDocumentReader-Android/releases).
+1. You placed the license into the correct folder as described here [How to build demo application](#how_to_build_demo_application) (RegulaDocumentReader/DocumentReaderDemo/src/main/res/raw).
+
 ## <a name="additional_information"></a> Additional information
 [Javadoc API reference](https://regulaforensics.github.io/RegulaDocumentReader-Android/index.html). 
 
