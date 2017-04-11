@@ -6,6 +6,7 @@ If you have any questions, feel free to contact us at support@regulaforensics.co
 * [How to build demo application](#how_to_build_demo_application)
 * [How to use DocumentReader library](#how_to_use_documentreader_library)
 * [How to add DocumentReader library to your project](#how_to_add_documentreader_library_to_your_project)
+* [Troubleshooting license issues](#troubleshooting_license_issues)
 * [Additional information](#additional_information)
 
 ## <a name="how_to_build_demo_application"></a> How to build demo application
@@ -114,7 +115,7 @@ dependencies {
 ```
 You also have to register license file as described in [How to use DocumentReader library](#how_to_use_documentreader_library)
 
-## <a name="license_troubleshooting"></a> Troubleshooting license issues
+## <a name="troubleshooting_license_issues"></a> Troubleshooting license issues
 If you have issues with license verification when running the application, please verify that next is true:
 1. OS you are using is the same as in the license you generated (Android).
 1. Application ID is the same that you specified for license.
