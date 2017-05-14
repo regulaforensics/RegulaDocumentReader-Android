@@ -15,7 +15,7 @@ If you have any questions, feel free to contact us at support@regulaforensics.co
 How to build demo application
 ----
 1. Get trial license for demo application at `licensing.regulaforensics.com <https://licensing.regulaforensics.com>`__ (``regula.license`` file).
-2. Clone current repository using command `git clone https://github.com/regulaforensics/RegulaDocumentReader-Android.git`.
+2. Clone current repository using command ``git clone https://github.com/regulaforensics/RegulaDocumentReader-Android.git``.
 3. Download and install latest `JDK <http://www.oracle.com/technetwork/java/javase/downloads/index.html>`__.
 4. Download and install latest `Android Studio <https://developer.android.com/studio/index.html>`__.
 5. Download latest `DocumentReader.aar <https://github.com/regulaforensics/RegulaDocumentReader-Android/releases/latest>`__ and copy it to `RegulaDocumentReader/DocumentReader` folder.
