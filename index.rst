@@ -14,13 +14,13 @@ If you have any questions, feel free to contact us at support@regulaforensics.co
 .. _`How to build demo application`:
 How to build demo application
 ----
-1. Get trial license for demo application at `licensing.regulaforensics.com <https://licensing.regulaforensics.com>`__ (`regula.license` file).
+1. Get trial license for demo application at `licensing.regulaforensics.com <https://licensing.regulaforensics.com>`__ (``regula.license`` file).
 2. Clone current repository using command `git clone https://github.com/regulaforensics/RegulaDocumentReader-Android.git`.
 3. Download and install latest `JDK <http://www.oracle.com/technetwork/java/javase/downloads/index.html>`__.
 4. Download and install latest `Android Studio <https://developer.android.com/studio/index.html>`__.
 5. Download latest `DocumentReader.aar <https://github.com/regulaforensics/RegulaDocumentReader-Android/releases/latest>`__ and copy it to `RegulaDocumentReader/DocumentReader` folder.
-6. Copy file `regula.license` to `RegulaDocumentReader/DocumentReaderDemo/src/main/res/raw` folder. 
-7. Launch Android Studio and select _Open an existing Android Studio project_ then select _RegulaDocumentReader_ project in file browser.
+6. Copy file ``regula.license`` to ``RegulaDocumentReader/DocumentReaderDemo/src/main/res/raw`` folder. 
+7. Launch Android Studio and select ``Open an existing Android Studio project`` then select ``RegulaDocumentReader`` project in file browser.
 8. Download additional files proposed by Android Studio to build project (build tools, for example).
 9. Build and run application on device.
 
@@ -53,7 +53,7 @@ The very first step you should make is initialize DocumentReader (install licens
       e.printStackTrace();
   }
 
-License file contains information about your application id and time terms. If `Init()` method returns false, you can see additional information in logcat.
+License file contains information about your application id and time terms. If ``Init()`` method returns false, you can see additional information in logcat.
 
 When DocumentReader is initialized, all you need to do is to call only one function to process bitmap or video frame:
 
@@ -91,7 +91,7 @@ When DocumentReader is initialized, all you need to do is to call only one funct
       }
   }
 
-You can also use `CaptureActivity` that does all camera work for you:
+You can also use ``CaptureActivity`` that does all camera work for you:
 
 .. code-block:: java
 
@@ -109,16 +109,16 @@ You can also use `CaptureActivity` that does all camera work for you:
       }
   }
 
-Additional details of how to use `CaptureActivity` you can find in demo application code.
+Additional details of how to use ``CaptureActivity`` you can find in demo application code.
 
 .. _`How to add DocumentReader library to your project`:
 How to add DocumentReader library to your project
 ----
 1. Open your project in Android Studio.
-2. In _File_ menu select _New_ submenu and thant select _New Module..._.
-3. In appeared window select _Import .JAR/.AAR Package_.
-4. In field _File name:_ write path to `DocumentReader.aar` file which you can find in `RegulaDocumentReader/DocumentReader` folder and press _Finish_ button.
-5. In your project `build.gradle` file add dependency to DocumentReader library:
+2. In ``File`` menu select ``New`` submenu and thant select ``New Module...``.
+3. In appeared window select ``Import .JAR/.AAR Package``.
+4. In field ``File name:`` write path to ``DocumentReader.aar`` file which you can find in ``RegulaDocumentReader/DocumentReader`` folder and press ``Finish`` button.
+5. In your project ``build.gradle`` file add dependency to DocumentReader library:
 
 .. code-block:: java
 
@@ -137,7 +137,7 @@ If you have issues with license verification when running the application, pleas
 2. Application ID is the same that you specified for license.
 3. Date and time on the device you are trying to run the application is correct and inside the license validity term.
 4. You are using the latest release of the SDK from `Releases <https://github.com/regulaforensics/RegulaDocumentReader-Android/releases>`__.
-5. You placed the license into the correct folder as described here `How to build demo application`_ (RegulaDocumentReader/DocumentReaderDemo/src/main/res/raw).
+5. You placed the license into the correct folder as described here `How to build demo application`_ (``RegulaDocumentReader/DocumentReaderDemo/src/main/res/raw``).
 
 .. _`Additional information`:
 Additional information
