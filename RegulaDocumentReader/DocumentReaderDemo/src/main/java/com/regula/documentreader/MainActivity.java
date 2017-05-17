@@ -31,6 +31,7 @@ import java.io.InputStream;
 
 public class MainActivity extends Activity {
     private static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1;
+    private static final int BROWSE_PICTURE = 2;
     private ImageButton mCameraBtn, mFolderBtn, mAboutBtn, mSettingBtn;
     private static boolean sIsInitialized;
     private SharedPreferences mPreferences;
@@ -67,7 +68,7 @@ public class MainActivity extends Activity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                byte[] license = byteArrayOutputStream.toByteArray();
+                byte[] license =byteArrayOutputStream.toByteArray();
                 sIsInitialized = DocumentReader.Instance().Init(MainActivity.this, license);
                 licInput.close();
                 byteArrayOutputStream.close();
@@ -158,8 +159,8 @@ public class MainActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (resultCode == RESULT_OK) {
-            if (requestCode == 1){
-                if (data.getData() != null) {
+            if (requestCode == BROWSE_PICTURE){
+                if (data!=null && data.getData() != null) {
                     Uri selectedImage = data.getData();
                     Bitmap bmp = getBitmap(selectedImage);
                     int status = DocumentReader.Instance().processBitmap(bmp);
@@ -184,7 +185,7 @@ public class MainActivity extends Activity {
             intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
         }
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), BROWSE_PICTURE);
     }
 
     private Bitmap getBitmap(Uri selectedImage) {
