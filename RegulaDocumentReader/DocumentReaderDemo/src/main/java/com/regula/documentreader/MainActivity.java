@@ -31,7 +31,7 @@ import java.io.InputStream;
 
 public class MainActivity extends Activity {
     private static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 1;
-    private static final int BROWSE_PICTURE = 2;
+    private static final int BROWSE_PICTURE = 2, READER_REQUEST_CODE= 3;
     private ImageButton mCameraBtn, mFolderBtn, mAboutBtn, mSettingBtn;
     private static boolean sIsInitialized;
     private SharedPreferences mPreferences;
@@ -86,7 +86,7 @@ public class MainActivity extends Activity {
                     if(cameraId!=-1) {
                         intent.putExtra(DocumentReader.CAMERA_ID,cameraId);
                     }
-                    MainActivity.this.startActivityForResult(intent, DocumentReader.READER_REQUEST_CODE);
+                    MainActivity.this.startActivityForResult(intent, READER_REQUEST_CODE);
                 }
             });
 
@@ -171,7 +171,7 @@ public class MainActivity extends Activity {
                         Toast.makeText(MainActivity.this, R.string.no_mrz,Toast.LENGTH_LONG).show();
                     }
                 }
-            } else if(requestCode == DocumentReader.READER_REQUEST_CODE){
+            } else if(requestCode == READER_REQUEST_CODE){
                 Intent i = new Intent(MainActivity.this, ResultsActivity.class);
                 MainActivity.this.startActivity(i);
             }

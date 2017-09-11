@@ -6,11 +6,11 @@ android {
 
     defaultConfig {
         applicationId "com.regula.documentreader"
-        minSdkVersion 18
+        minSdkVersion 14
         targetSdkVersion 25
 
         versionCode 9
-        versionName "1.9.1"
+        versionName "1.9.4"
     }
     buildTypes {
         release {
